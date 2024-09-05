@@ -1,19 +1,9 @@
-all: ex01_basicprogram ex02_parameters ex03_pid ex04_outerr ex05_in
+.PHONY: all
+all: example01.out example02.out example03.out
 
-ex01_basicprogram: ex01_basicprogram.c
+%.out: %.c
 	gcc -o $@ $<
 
-ex02_parameters: ex02_parameters.c
-	gcc -o $@ $<
-
-ex03_pid: ex03_pid.c
-	gcc -o $@ $<
-
-ex04_outerr: ex04_outerr.c
-	gcc -o $@ $<
-
-ex05_in: ex05_in.c
-	gcc -o $@ $<
-
+.PHONY: clean
 clean:
-	rm -f ex01_basicprogram ex02_parameters ex03_pid ex04_outerr ex05_in
+	rm -f *.out
